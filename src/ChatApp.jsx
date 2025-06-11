@@ -1,5 +1,6 @@
 // ChatApp.jsx
 import { useState, useEffect, useRef } from "react";
+import FileUpload from "./components/FileUpload"; // Make sure the path is correct
 
 const botAvatar = "🤖";
 const userAvatar = "🧑";
@@ -103,6 +104,18 @@ export default function ChatApp() {
     }
   };
 
+  const handleFileResult = (result) => {
+    const flightPlanText = JSON.stringify(result.flight_plan, null, 2);
+    setMessages((prev) => [
+      ...prev,
+      {
+        role: "bot",
+        text: `📄 Extracted flight plan from uploaded document:\n${flightPlanText}`,
+        timestamp: new Date(),
+      },
+    ]);
+  };
+
   const handleKeyPress = (e) => {
     if (e.key === "Enter") sendMessage(input);
   };
@@ -116,6 +129,8 @@ export default function ChatApp() {
       {!messages.some((msg) => msg.role === "user") && (
         <WelcomeCard onSuggestionClick={onSuggestionClick} />
       )}
+
+      <FileUpload onFileProcessed={handleFileResult} />
 
       <div className="flex-1 overflow-y-auto space-y-3 mb-4 px-1">
         {messages.map((msg, idx) => (
