@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import FileUpload from "./components/FileUpload";
+import FileUpload from './components/FileUpload';
 
 function App() {
   const handleResult = (result) => {
