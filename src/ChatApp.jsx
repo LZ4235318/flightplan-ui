@@ -1,6 +1,6 @@
 // ChatApp.jsx
 import { useState, useEffect, useRef } from "react";
-import FileUpload from "./components/FileUpload"; // Make sure the path is correct
+import FileUpload from "./FileUpload"; // Make sure the path is correct
 
 const botAvatar = "🤖";
 const userAvatar = "🧑";
