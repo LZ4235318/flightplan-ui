@@ -81,7 +81,7 @@ export default function ChatApp() {
 
     try {
       const response = await fetch(
-        "https://nice-water-0b5ffc903.6.azurestaticapps.net",
+        "https://flightplanbackendsa01.azurewebsites.net/api/chatbotHandler",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
